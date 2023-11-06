@@ -1,3 +1,5 @@
+-- Combining files due to MB limitation
+
 CREATE TABLE appleStore_description_combined AS
 
 SELECT * FROM appleStore_description1
@@ -15,9 +17,9 @@ UNION ALL
 SELECT * FROM appleStore_description4
 
 
-**EXPLORATORY DATA ANALYSIS**AppleStore
+**EXPLORATORY DATA ANALYSIS**
 
--- check the number of unique apps in both tablesAppleStoreAppleStore 
+-- check the number of unique apps in both tables
 
 SELECT COUNT(DISTINCT id) AS UniqueAppIDs
 FROM AppleStore
@@ -25,7 +27,7 @@ FROM AppleStore
 SELECT COUNT(DISTINCT id) AS UniqueAppIDs
 FROM appleStore_description_combined
 
--- Check for any missing values in key fieldsAppleStore
+-- Check for any missing values in key fields
 
 SELECT COUNT(*) AS MissingValues
 FROM AppleStore
@@ -35,7 +37,7 @@ SELECT COUNT(*) AS MissingValues
 FROM appleStore_description_combined
 WHERE app_desc IS NULL
 
---Find out the number of apps per genreAppleStore
+--Find out the number of apps per genre
 
 SELECT prime_genre, COUNT(*) AS NumApps
 FROM AppleStore
@@ -102,7 +104,7 @@ GROUP BY desciption_length_bucket
 ORDER BY average_rating DESC
 
 
---Check the top-rated apps for each game
+--Check the top-rated app for each genre
 
 SELECT
 	prime_genre,
